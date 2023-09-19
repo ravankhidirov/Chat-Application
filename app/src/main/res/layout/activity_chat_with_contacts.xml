@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".messaging_with_contact.ChatWithContactsActivity"
+    android:background="@color/app_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--This layout contains sender and receiver people's profile images-->
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--Sender profile image-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="250dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+                <ImageView
+                    android:id="@+id/myProfileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/elizabet" />
+            </androidx.cardview.widget.CardView>
+
+            <!--Receiver profile image-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                app:cardCornerRadius="250dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <ImageView
+                    android:id="@+id/contactProfileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/elizabet" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+        <!--Sender and receiver names-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+            android:id="@+id/namesLinearLayout">
+            <TextView
+                android:id="@+id/myProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Martina Wolna"
+                android:textColor="@color/account_white"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/contactProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Martina Wolna"
+                android:textColor="@color/account_white"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!--RecyclerView to demonstrate messages-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messagesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/constraint"
+        tools:orientation="vertical"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_above="@+id/linearLayout"/>
+
+
+    <!--This layout demonstrates edittext to get message, send text message button and photo message button-->
+
+    <!--This layout contains message box and button to send text message-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <!--EditText to get input text as message-->
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <EditText
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:background="@android:color/transparent"
+                android:hint="Write"
+                android:textColor="@color/account_white"
+                android:textColorHint="@color/account_white" />
+        </LinearLayout>
+
+
+        <!--This layout contains button to send text message-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/photoSendButton"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout4">
+
+            <ImageView
+                android:id="@+id/sendTextMessageImageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:src="@drawable/send_text_message_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--This layout contains button to send photo messages-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/photoSendButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/send_photo_message_button_back"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/sendPhotoMessageImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/send_photo_message_button" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

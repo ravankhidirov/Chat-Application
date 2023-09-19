@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/loginFragment">
+
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.chatapplication.registration_new.LoginFragment"
+        android:label="label_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_from_login_to_email"
+            app:destination="@id/emailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+
+        <action
+            android:id="@+id/action_from_login_to_not_verified"
+            app:destination="@+id/notVerifiedFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right">
+
+            <argument
+                android:name="email"
+                app:argType="string" />
+            <argument
+                android:name="password"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.example.chatapplication.registration_new.EmailFragment"
+        android:label="label_email"
+        tools:layout="@layout/fragment_email" >
+        <action
+            android:id="@+id/action_from_email_to_details"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right">
+            <argument
+                android:name="email"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_from_email_to_login"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.chatapplication.registration_new.DetailsFragment"
+        android:label="label_email"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_from_details_to_verification"
+            app:destination="@id/verificationFragment">
+            <argument
+                android:name="userEmail"
+                app:argType="string" />
+            <argument
+                android:name="userPassword"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/verificationFragment"
+        android:name="com.example.chatapplication.registration_new.VerificationFragment"
+        android:label="label_email"
+        tools:layout="@layout/fragment_verification" >
+        <argument
+            android:name="userEmail"
+            app:argType="string" />
+        <argument
+            android:name="userPassword"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_from_verification_to_profile"
+            app:destination="@id/profileFragment"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.chatapplication.registration_new.ProfileFragment"
+        android:label="label_email"
+        tools:layout="@layout/fragment_profile" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/notVerifiedFragment"
+        android:name="com.example.chatapplication.registration_new.NotVerifiedFragment"
+        android:label="label_email"
+        tools:layout="@layout/fragment_not_verified" >
+
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_from_not_verified_to_profile"
+            app:destination="@id/profileFragment"/>
+
+    </fragment>
+
+
+
+
+
+
+</navigation>

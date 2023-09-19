@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".messaging_in_chatroom.ChatInChatroomActivity"
+    android:background="@color/app_background">
+
+    <TextView
+        android:id="@+id/groupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Group Name"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/account_white"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <!--This recyclerview shows profile images of the members at the top -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatroomMembersProfileRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/groupName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:orientation="horizontal"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/chatroom_member_profile_photo_down"/>
+
+
+    <!--This recyclerview shows messages in chatroom -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatroomMessagesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/chatroomMembersProfileRecyclerView"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="30dp"
+        android:layout_above="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/chatroom_received_message_item_without_time"
+        app:layout_constraintTop_toBottomOf="@+id/chatroomMembersProfileRecyclerView"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:orientation="vertical" />
+
+
+    <!--This layout contains message box and button to send text message-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <!--EditText to get input text as message-->
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <EditText
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:background="@android:color/transparent"
+                android:hint="Write"
+                android:textColor="@color/account_white"
+                android:textColorHint="@color/account_white" />
+        </LinearLayout>
+
+
+        <!--This layout contains button to send text message-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/photoSendButton"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout4">
+
+            <ImageView
+                android:id="@+id/sendTextMessageImageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:src="@drawable/send_text_message_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--This layout contains button to send photo messages-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/photoSendButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/send_photo_message_button_back"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/sendPhotoMessageImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/send_photo_message_button" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

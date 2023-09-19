@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_nav_graph"
+    app:startDestination="@+id/currentProfileFragment">
+
+    <fragment
+        android:id="@+id/currentProfileFragment"
+        android:name="com.example.chatapplication.profile_edit.fragments.CurrentProfileFragment"
+        android:label="profile_edit"
+        tools:layout="@layout/fragment_current_profile">
+        <action
+            android:id="@+id/action_from_current_to_edit"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right">
+            <argument
+                android:name="nameOrSurname"
+                app:argType="string" />
+            <argument
+                android:name="forWhat"
+                app:argType="integer" />
+        </action>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.chatapplication.profile_edit.fragments.EditProfileFragment"
+        android:label="profile_edit"
+        tools:layout="@layout/fragment_edit_profile">
+
+        <argument
+            android:name="nameOrSurname"
+            app:argType="string" />
+        <argument
+            android:name="forWhat"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_from_edit_to_current"
+            app:destination="@id/currentProfileFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+</navigation>

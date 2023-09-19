@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ChatApplication</string>
+    <string name="verification">We have sent a verification email. Please, verify your email to continue.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
