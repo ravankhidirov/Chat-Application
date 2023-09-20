@@ -2,7 +2,7 @@ Firebase chat application.
 The application uses firebase authentication, firebase realtime database for messaging and firebase storage for storing image messages.
 There are several stage sign up process where user enters email, details, and profile photo (optional)
 Group messaging and messaging with contact are available in the app.
-Messages can contain image and text. 
+Messages can contain image and text 
 
 Sign up and log in:
 ![image](https://github.com/ravankhidirov/Chat-Application/assets/112794999/4aa83d96-bcbb-44da-bcc5-7f22f789d0ed)
